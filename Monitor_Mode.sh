@@ -30,25 +30,25 @@ if [[ $menu == "1" ]]; then
  IWdev
  echo
  read -p "Which device you wanna set it to monitor mode : " dev
- sudo ip link set dev down
- sudo iw dev set monitor mode
- sudo ip link set dev up
-
+ sudo ip link set $dev down
+ sudo iw $dev set monitor mode
+ sudo ip link set $dev up
+ echo "The change has been done successfully"
 
 elif [[ $menu == "2" ]]; then
  IWconfig
  read -p "Which device you wanna set it to monitor mode : " dev
- sudo ifconfig dev down
- sudo iwconfig dev mode monitor
- sudo ifconfig dev up
-
+ sudo ifconfig $dev down
+ sudo iwconfig $dev mode monitor
+ sudo ifconfig $dev up
+ echo "The change has been done successfully"
 
 elif [[ $menu == "3" ]]; then
  AIrmon
  read -p "Which adapter you wanna se to set to monitor mode : " dev
- sudo airmon-ng start dev
+ sudo airmon-ng start $dev
  sudo airmon-ng check kill
- sudo airmon-ng start dev
+ sudo airmon-ng start $dev
 
 
 elif [[ $menu == "*" ]]; then
